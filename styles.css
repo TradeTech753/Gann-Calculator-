@@ -1,0 +1,156 @@
+:root {
+    --bg-color: #0b0e14;
+    --panel-bg: #151a23;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border-color: #2d3748;
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --secondary-color: #374151;
+    --secondary-hover: #4b5563;
+    --upside-color: #10b981;
+    --downside-color: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-top: 16px;
+}
+
+header h1 { font-size: 1.5rem; margin-bottom: 4px; }
+.subtitle { font-size: 0.9rem; color: var(--text-muted); }
+
+.input-panel, .results-panel {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.form-group { margin-bottom: 16px; }
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+input[type="number"], select {
+    width: 100%;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="number"]:focus, select:focus { border-color: var(--primary-color); }
+
+.interval-controls { display: flex; flex-direction: column; gap: 8px; }
+.presets { display: flex; gap: 8px; }
+
+.preset-btn {
+    flex: 1;
+    background-color: var(--secondary-color);
+    color: var(--text-main);
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.preset-btn:hover { background-color: var(--secondary-hover); }
+
+.actions { display: flex; gap: 12px; margin-top: 24px; }
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn.primary { background-color: var(--primary-color); color: white; }
+.btn.primary:hover { background-color: var(--primary-hover); }
+
+.btn.secondary { background-color: var(--secondary-color); color: white; }
+.btn.secondary:hover { background-color: var(--secondary-hover); }
+
+.validation-msg {
+    margin-top: 16px;
+    color: var(--downside-color);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.hidden { display: none !important; }
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg-color);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+}
+
+.summary-item { color: var(--text-muted); }
+.summary-item span { color: var(--text-main); font-weight: 600; }
+
+.outdated-warning {
+    color: #f59e0b;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.table-responsive { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+
+th, td { padding: 12px 8px; text-align: right; border-bottom: 1px solid var(--border-color); }
+th:first-child, td:first-child { text-align: center; }
+
+th { font-weight: 600; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; }
+.upside-header { color: var(--upside-color); }
+.downside-header { color: var(--downside-color); }
+
+td { font-variant-numeric: tabular-nums; }
+td:nth-child(2) { color: var(--upside-color); font-weight: 500; }
+td:nth-child(3) { color: var(--downside-color); font-weight: 500; }
+
+@media (max-width: 480px) {
+    .container { padding: 12px; }
+    .input-panel, .results-panel { padding: 16px; }
+    th, td { padding: 10px 4px; font-size: 0.85rem; }
+    .summary { flex-direction: column; gap: 4px; text-align: center; }
+}
